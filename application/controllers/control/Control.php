@@ -798,7 +798,7 @@ public function dashboardCategory($device){
 					->join('mqtt_category_img','mqtt_category_img.idboard=mqtt_pub_sub.idboard','left')
 					->where('mqtt_user.iduser',$iduser)
 					->where('mqtt_user.status','On')
-					->like('mqtt_user.category',$device)
+					->where('mqtt_user.category',$device) 
 					->group_by('mqtt_pub_sub.idboard')
 					->get()->result();
 
